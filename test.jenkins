@@ -7,5 +7,10 @@ pipeline {
                 echo 'Build completed'
             }
         }
+        stage('testing') {
+            steps {
+                sh 'pwd'
+            }
+        }
     }
 }
