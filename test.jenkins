@@ -9,7 +9,8 @@ pipeline {
         }
         stage('testing') {
             steps {
-                sh 'pwd'
+                sh 'cd ./pytest_homework'
+                sh 'pip install -r requirements.txt'
             }
         }
     }
