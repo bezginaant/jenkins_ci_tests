@@ -10,7 +10,6 @@ pipeline {
         stage('testing') {
             steps {
                 sh 'pwd'
-                /var/jenkins_home/workspace/test
                 sh 'python3 --version'
             }
         }
