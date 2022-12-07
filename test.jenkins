@@ -10,7 +10,7 @@ pipeline {
         stage('testing') {
             steps {
                 sh 'pwd'
-                sh 'python --version'
+                sh "python3 --version"
             }
         }
     }
