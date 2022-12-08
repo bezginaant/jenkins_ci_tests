@@ -1,7 +1,7 @@
 import pytest
 import pymssql
 
-test_server = 'localhost:1433'
+test_server = 'host.docker.internal:1433'
 test_user = 'test_user'
 password = 'HelloWorld22'
 test_db = 'NEW_DB'
