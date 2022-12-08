@@ -5,7 +5,7 @@ pipeline {
             steps {
                 sh '''
                     mkdir weekly_release
-                    cd weekly_release && clone https://github.com/bezginaant/jenkins_ci_tests.git
+                    cd weekly_release && git clone https://github.com/bezginaant/jenkins_ci_tests.git
                 '''
             }
         }
