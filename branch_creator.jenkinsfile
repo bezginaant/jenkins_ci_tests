@@ -3,11 +3,13 @@ pipeline {
     stages {
         stage('access repo') {
             steps {
-                sh '''
-                    rm -rf weekly_release
-                    mkdir weekly_release
-                    cd weekly_release && git clone https://github.com/bezginaant/jenkins_ci_tests.git
-                '''
+                withCredentials([gitUsernamePassword(credentialsId: 'git_creds', gitToolName: 'Default')]) {
+                    sh '''
+                        rm -rf weekly_release
+                        mkdir weekly_release
+                        cd weekly_release && git clone https://github.com/bezginaant/jenkins_ci_tests.git
+                    '''
+                }
             }
         }
         stage('create branch') {
