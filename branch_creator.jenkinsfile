@@ -14,13 +14,15 @@ pipeline {
         }
         stage('create branch') {
             steps {
-                sh '''
-                    cd weekly_release && \
-                    git checkout "main" && \
-                    git checkout -b "release-W$" && \
-                    git push --set-upstream origin "release-W$" && \
-                    git push origin
-                '''
+                withCredentials([gitUsernamePassword(credentialsId: 'git_creds', gitToolName: 'Default')]) {
+                    sh '''
+                        cd weekly_release && \
+                        git checkout "main" && \
+                        git checkout -b "release-W$" && \
+                        git push --set-upstream origin "release-W$" && \
+                        git push origin
+                    '''
+                }
             }
         }
         stage('clear env') {
