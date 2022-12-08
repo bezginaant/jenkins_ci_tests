@@ -1,0 +1,24 @@
+pipeline {
+    agent any
+    stages {
+        stage('access repo') {
+            steps {
+                sh '''
+                    mkdir weekly_release
+                    cd weekly_release && clone https://github.com/bezginaant/jenkins_ci_tests.git
+                '''
+            }
+        }
+        stage('create branch') {
+            steps {
+                sh '''
+                    cd weekly_release && \
+                    git checkout "main" && \
+                    git checkout -b "release-W$" && \
+                    git push --set-upstream origin "release-W$" && \
+                    git push origin
+                '''
+            }
+        }
+    }
+}
