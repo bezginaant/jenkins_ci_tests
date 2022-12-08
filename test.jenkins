@@ -14,7 +14,7 @@ pipeline {
                 sh "pwd"
                 sh "ls"
                 sh "cd pytest_run/jenkins_ci_tests/pytest_project/pytest_homework && pip install -r requirements.txt"
-                sh "cd pytest_run/jenkins_ci_tests/pytest_project/pytest_homework && pytest -q pytest_project/pytest_homework/checker.py"
+                sh "cd pytest_run/jenkins_ci_tests/pytest_project/pytest_homework && pytest -q checker.py"
                 sh "rm -rf pytest_run"
             }
         }
