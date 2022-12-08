@@ -12,6 +12,9 @@ pipeline {
                 sh 'pwd'
                 sh "python3 --version"
                 sh "git clone https://github.com/bezginaant/jenkins_ci_tests.git"
+                sh 'pwd'
+                sh 'ls'
+            }
         }
     }
 }
