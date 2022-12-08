@@ -9,7 +9,6 @@ pipeline {
         }
         stage('testing') {
             steps {
-                sh "rm -rf pytest_run"
                 sh "mkdir pytest_run"
                 sh "cd pytest_run && git clone https://github.com/bezginaant/jenkins_ci_tests.git"
                 sh "pwd"
