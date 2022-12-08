@@ -4,6 +4,7 @@ pipeline {
         stage('access repo') {
             steps {
                 sh '''
+                    rm -rf weekly_release
                     mkdir weekly_release
                     cd weekly_release && git clone https://github.com/bezginaant/jenkins_ci_tests.git
                 '''
@@ -18,6 +19,11 @@ pipeline {
                     git push --set-upstream origin "release-W$" && \
                     git push origin
                 '''
+            }
+        }
+        stage('clear env') {
+            steps {
+                sh "rm -rf weekly_release"
             }
         }
     }
