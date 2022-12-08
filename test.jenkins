@@ -13,6 +13,7 @@ pipeline {
                 sh "mkdir pytest_run"
                 sh "cd pytest_run && git clone https://github.com/bezginaant/jenkins_ci_tests.git"
                 sh "pwd"
+                sh "ls"
                 sh "cd ./pytest_homework && pip install -r requirements.txt && pytest -q ./pytest_project/pytest_homework/checker.py"
                 sh "rm -rf pytest_run"
             }
