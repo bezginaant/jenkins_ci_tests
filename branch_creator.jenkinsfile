@@ -18,6 +18,7 @@ pipeline {
                     sh '''
                         cd weekly_release && \
                         git checkout "main" && \
+                        git branch --delete "release-W$" && \
                         git checkout -b "release-W$" && \
                         git push --set-upstream origin "release-W$" && \
                         git push origin
