@@ -18,7 +18,6 @@ pipeline {
                     sh '''
                         cd weekly_release && \
                         git checkout "main" && \
-                        git branch --delete "release-test" && \
                         git checkout -b "release-test" && \
                         git push origin "release-test"
                     '''
