@@ -4,6 +4,7 @@ pipeline {
         stage('prepare_env') {
             steps {
                 sh '''
+                    rm -rf pytest_run && \
                     mkdir pytest_run && \
                     cd pytest_run && git clone https://github.com/bezginaant/jenkins_ci_tests.git && \
                     echo "Repo cloned" && \
