@@ -4,18 +4,18 @@ pipeline {
         stage('prepare_env') {
             steps {
                 sh '''
-                    mkdir pytest_run
-                    cd pytest_run && git clone https://github.com/bezginaant/jenkins_ci_tests.git
-                    echo "Repo cloned"
-                    cd pytest_run/jenkins_ci_tests/pytest_project/pytest_homework && pip install -r requirements.txt
-                    echo "Requirements installed
+                    mkdir pytest_run && \
+                    cd pytest_run && git clone https://github.com/bezginaant/jenkins_ci_tests.git && \
+                    echo "Repo cloned" && \
+                    cd pytest_run/jenkins_ci_tests/pytest_project/pytest_homework && pip install -r requirements.txt && \
+                    echo "Requirements installed"
                 '''
             }
         }
         stage('testing') {
             steps {
                 sh '''
-                    cd pytest_run/jenkins_ci_tests/pytest_project/pytest_homework && pytest -q checker.py
+                    cd pytest_run/jenkins_ci_tests/pytest_project/pytest_homework && pytest -q checker.py && \
                     echo "Tests running completed"
                 '''
             }
@@ -23,7 +23,7 @@ pipeline {
         stage('clear_env') {
             steps {
                 sh '''
-                    rm -rf pytest_run
+                    rm -rf pytest_run && \
                     echo "Evironment cleaned"
                 '''
             }
