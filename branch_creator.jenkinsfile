@@ -18,8 +18,8 @@ pipeline {
                     sh '''
                         cd weekly_release && \
                         git checkout "main" && \
-                        git checkout -b "release-test" && \
-                        git push origin "release-test"
+                        git checkout -b "release-test-branch" && \
+                        git push origin "release-test-branch"
                     '''
                 }
             }
