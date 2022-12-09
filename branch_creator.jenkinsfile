@@ -15,7 +15,7 @@ pipeline {
             steps {
                 sh '''
                     cd weekly_release && \
-                    git checkout "main" && \
+                    git checkout "develop" && \
                     git checkout -b "release-W$weekNumber" && \
                     git push origin "release-W$weekNumber"
                     echo "Release branch created"
