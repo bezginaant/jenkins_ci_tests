@@ -6,6 +6,8 @@ pipeline {
                 sh '''
                     rm -rf pytest_run
                     mkdir pytest_run
+                    pwd
+                    ls
                     cd pytest_run && git clone https://github.com/bezginaant/jenkins_ci_tests.git
                     cd pytest_run/jenkins_ci_tests/pytest_project/pytest_homework && pip install -r requirements.txt
                 '''
